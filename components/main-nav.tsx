@@ -4,12 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
+import { Category } from "@/types";
 
 type Props = {
-	data: Array<{
-		id: string;
-		label: string;
-	}>;
+	data: Category[];
 };
 
 type FormattedRoute = {
@@ -23,7 +21,7 @@ const MainNav = ({ data }: Props) => {
 
 	const routes: FormattedRoute[] = data.map((route) => ({
 		href: `/category/${route.id}`,
-		label: route.label,
+		label: route.name,
 		active: pathname.includes(`/category/${route.id}`),
 	}));
 
