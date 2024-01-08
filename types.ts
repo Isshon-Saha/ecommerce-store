@@ -24,7 +24,7 @@ export type Size = {
 
 export type Image = {
 	id: string;
-	Url: string;
+	url: string;
 };
 
 export type Product = {
