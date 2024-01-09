@@ -1,3 +1,5 @@
+import { unstable_noStore } from "next/cache";
+
 import getBillboard from "@/actions/get-billboard";
 import getProducts from "@/actions/get-products";
 import Billboard from "@/components/billboard";
@@ -9,6 +11,8 @@ export const revalidate = 0;
 const MainPage = async () => {
 	const billboardPromise = getBillboard("3f07e84a-45fb-44e1-ac75-b7c055eb1c3e");
 	const productsPromise = getProducts({ isFeatured: true });
+
+	unstable_noStore();
 
 	const res = await Promise.all([billboardPromise, productsPromise]);
 	const [billboard, products] = res;

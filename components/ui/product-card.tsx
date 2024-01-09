@@ -17,8 +17,17 @@ type Props = {
 const ProductCard = ({ data }: Props) => {
 	const router = useRouter();
 	const { name, price, images, category } = data;
+
+	const onClick = () => {
+		router.push(`/product/${data?.id}`);
+	};
 	return (
-		<Card className="pt-4 grow-0" shadow="sm" isPressable onPress={() => {}}>
+		<Card
+			className="pt-4 grow-0"
+			shadow="sm"
+			isPressable
+			onPress={() => onClick()}
+		>
 			<CardBody className="overflow-hidden py-2">
 				<Image
 					alt="Card background"
