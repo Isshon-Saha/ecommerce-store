@@ -2,6 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import {
+	Navbar,
+	NavbarBrand,
+	NavbarContent,
+	NavbarItem,
+	Link as NextLink,
+	Button,
+} from "@nextui-org/react";
 
 import { cn } from "@/lib/utils";
 import { Category } from "@/types";

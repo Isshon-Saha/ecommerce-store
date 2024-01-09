@@ -18,12 +18,7 @@ const ProductCard = ({ data }: Props) => {
 	const router = useRouter();
 	const { name, price, images, category } = data;
 	return (
-		<Card
-			className="pt-4 grow-0"
-			shadow="sm"
-			isPressable
-			onPress={() => router.push("/")}
-		>
+		<Card className="pt-4 grow-0" shadow="sm" isPressable onPress={() => {}}>
 			<CardBody className="overflow-hidden py-2">
 				<Image
 					alt="Card background"
@@ -50,14 +45,14 @@ const ProductCard = ({ data }: Props) => {
 			<Divider orientation="horizontal" />
 			<CardFooter className="px-4 flex items-center justify-between gap-x-5">
 				<Button
-					className="px-2 bg-slate-700 text-white dark:bg-white dark:bg-slate-700"
+					className="px-2 bg-slate-700 text-white dark:bg-white dark:text-slate-700"
 					size="md"
 				>
 					<PackageSearch className="h-4 w-4" />
 					View Details
 				</Button>
 				<Button
-					className="px-2 bg-slate-700 text-white dark:bg-white dark:bg-slate-700"
+					className="px-2 bg-slate-700 text-white dark:bg-white dark:text-slate-700"
 					size="md"
 				>
 					<ShoppingBasket className="h-4 w-4" />

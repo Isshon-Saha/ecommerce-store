@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
 import "./globals.css";
 
-import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import { Providers } from "./providers";
+import FooterBlock from "@/components/footer";
 
 const font = Urbanist({ subsets: ["latin"] });
 
@@ -24,7 +24,7 @@ export default function RootLayout({
 				<Providers>
 					<Navbar />
 					{children}
-					<Footer />
+					<FooterBlock />
 				</Providers>
 			</body>
 		</html>
