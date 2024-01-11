@@ -1,6 +1,7 @@
-import { Button, Input } from "@nextui-org/react";
+import { Button } from "@nextui-org/button";
 import Link from "next/link";
-import Container from "./ui/container";
+
+import Container from "@/components/ui/container";
 
 type FooterItemProps = {
 	text: string;

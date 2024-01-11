@@ -1,14 +1,13 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+import { PackageSearch, ShoppingBasket } from "lucide-react";
+
 import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
 import { Button } from "@nextui-org/button";
-
 import { Product } from "@/types";
-import Image from "next/image";
-import { redirect, useRouter } from "next/navigation";
 import { formatter } from "@/lib/utils";
-import { Chip, Divider } from "@nextui-org/react";
-import { PackageSearch, ShoppingBagIcon, ShoppingBasket } from "lucide-react";
+import { Chip, Divider, Image } from "@nextui-org/react";
 
 type Props = {
 	data: Product;
