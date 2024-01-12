@@ -25,7 +25,7 @@ const ProductList = ({ title, products }: Props) => {
 			<h3 className="font-bold text-3xl text-slate-700">{title}</h3>
 			<div className="h-[5vh]" />
 			{products.length === 0 && <NoResults />}
-			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 justify-items-center">
+			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 justify-items-start lg:justify-items-center">
 				{products.map((product) => (
 					<Suspense fallback={<div>Loading...</div>}>
 						<ProductCard data={product} key={product.id} />

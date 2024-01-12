@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { PackageSearch, ShoppingBasket } from "lucide-react";
+import NextImage from "next/image";
 
 import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
 import { Button } from "@nextui-org/button";
@@ -30,6 +31,7 @@ const ProductCard = ({ data }: Props) => {
 			<CardBody className="overflow-hidden py-2">
 				<Image
 					alt="Card background"
+					as={NextImage}
 					className="object-cover rounded-xl aspect-square"
 					src={images[0]?.url}
 					height={270}
@@ -55,6 +57,7 @@ const ProductCard = ({ data }: Props) => {
 				<Button
 					className="px-2 bg-slate-700 text-white dark:bg-white dark:text-slate-700"
 					size="md"
+					onClick={() => onClick()}
 				>
 					<PackageSearch className="h-4 w-4" />
 					View Details
@@ -62,6 +65,7 @@ const ProductCard = ({ data }: Props) => {
 				<Button
 					className="px-2 bg-slate-700 text-white dark:bg-white dark:text-slate-700"
 					size="md"
+					onClick={() => {}}
 				>
 					<ShoppingBasket className="h-4 w-4" />
 					Add to Cart

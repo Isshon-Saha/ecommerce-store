@@ -1,23 +1,40 @@
 "use client";
 
-import { Tabs, Tab } from "@nextui-org/react";
+import { Tab } from "@headlessui/react";
+import Image from "next/image";
 
 import { Image as ImageType } from "@/types";
 import GalleryTab from "@/components/gallery/gallery-tab";
 
 type Props = {
-	images: ImageType[] | undefined;
+	images: ImageType[];
 };
 
 const Gallery = ({ images }: Props) => {
 	return (
-		<div className="flex flex-col-reverse">
+		<Tab.Group as="div" className="flex flex-col-reverse">
 			<div className="mx-auto mt-6 hidden sm:block w-full max-w-2xl lg:max-w-none">
-				<Tabs items={images} className="grid grid-cols-4 gap-6">
-					{(item) => <Tab key={item.id}>GalleryItem</Tab>}
-				</Tabs>
+				<Tab.List className="grid grid-cols-4 gap-6">
+					{images.map((image) => (
+						<GalleryTab key={image.id} image={image} />
+					))}
+				</Tab.List>
 			</div>
-		</div>
+			<Tab.Panels className="aspect-square w-full">
+				{images.map((image) => (
+					<Tab.Panel key={image.id}>
+						<div className="aspect-square h-full w-full relative sm:rounded-lg overflow-hidden">
+							<Image
+								fill
+								src={image.url}
+								alt="Image"
+								className="object-cover object-center"
+							/>
+						</div>
+					</Tab.Panel>
+				))}
+			</Tab.Panels>
+		</Tab.Group>
 	);
 };
 
