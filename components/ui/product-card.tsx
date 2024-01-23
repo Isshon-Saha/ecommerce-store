@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { PackageSearch, ShoppingBasket } from "lucide-react";
 import NextImage from "next/image";
+import { useEffect, useState } from "react";
 
 import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
 import { Button } from "@nextui-org/button";
@@ -17,6 +18,13 @@ type Props = {
 const ProductCard = ({ data }: Props) => {
 	const router = useRouter();
 	const { name, price, images, category } = data;
+	const [isClient, setIsClient] = useState(false);
+
+	useEffect(() => {
+		setIsClient(true);
+	}, []);
+
+	if (!isClient) return null;
 
 	const onClick = () => {
 		router.push(`/product/${data?.id}`);
