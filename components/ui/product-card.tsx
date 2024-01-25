@@ -3,13 +3,14 @@
 import { useRouter } from "next/navigation";
 import { PackageSearch, ShoppingBasket } from "lucide-react";
 import NextImage from "next/image";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
 import { Button } from "@nextui-org/button";
 import { Product } from "@/types";
 import { formatter } from "@/lib/utils";
 import { Chip, Divider, Image } from "@nextui-org/react";
+import usePreviewModal from "@/hooks/use-preview-modal";
 
 type Props = {
 	data: Product;
@@ -17,6 +18,8 @@ type Props = {
 
 const ProductCard = ({ data }: Props) => {
 	const router = useRouter();
+	const previewModal = usePreviewModal();
+
 	const { name, price, images, category } = data;
 	const [isClient, setIsClient] = useState(false);
 
@@ -29,13 +32,12 @@ const ProductCard = ({ data }: Props) => {
 	const onClick = () => {
 		router.push(`/product/${data?.id}`);
 	};
+
+	const onPreview = () => {
+		previewModal.onOpen(data);
+	};
 	return (
-		<Card
-			className="pt-4 grow-0"
-			shadow="sm"
-			isPressable
-			onPress={() => onClick()}
-		>
+		<Card className="pt-4 grow-0" shadow="sm" isPressable onPress={onPreview}>
 			<CardBody className="overflow-hidden py-2">
 				<Image
 					alt="Card background"
@@ -73,7 +75,7 @@ const ProductCard = ({ data }: Props) => {
 				<Button
 					className="px-2 bg-slate-700 text-white dark:bg-white dark:text-slate-700"
 					size="md"
-					onClick={() => {}}
+					onClick={onClick}
 				>
 					<ShoppingBasket className="h-4 w-4" />
 					Add to Cart
