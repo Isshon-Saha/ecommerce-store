@@ -56,7 +56,6 @@ const CategoryPage = async ({ params, searchParams }: Props) => {
 							{products.length === 0 && <NoResults />}
 							<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
 								{products.map((product) => (
-									// TODO: Add a link to the product page
 									<div key={product.id}>
 										<ProductCard data={product} />
 									</div>

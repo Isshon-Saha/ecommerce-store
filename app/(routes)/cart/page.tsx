@@ -10,8 +10,6 @@ import Summary from "./_components/summary";
 const CartPage = () => {
 	const [isClient, setIsClient] = useState(false);
 	const cartItems = useCart((state) => state.items);
-	const removeFromCart = useCart((state) => state.removeItem);
-	const removeAll = useCart((state) => state.removeAll);
 
 	useEffect(() => {
 		setIsClient(true);

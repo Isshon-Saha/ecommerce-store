@@ -1,7 +1,5 @@
 "use client";
 
-import axios from "axios";
-import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { toast } from "sonner";
 import { Button } from "@nextui-org/button";

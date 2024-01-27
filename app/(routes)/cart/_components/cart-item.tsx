@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { toast } from "sonner";
 import { Trash2 } from "lucide-react";
 import { Button } from "@nextui-org/button";
 
