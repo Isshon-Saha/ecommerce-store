@@ -11,6 +11,7 @@ import { Product } from "@/types";
 import { formatter } from "@/lib/utils";
 import { Chip, Divider, Image } from "@nextui-org/react";
 import usePreviewModal from "@/hooks/use-preview-modal";
+import useCart from "@/hooks/use-cart";
 
 type Props = {
 	data: Product;
@@ -19,6 +20,7 @@ type Props = {
 const ProductCard = ({ data }: Props) => {
 	const router = useRouter();
 	const previewModal = usePreviewModal();
+	const addToCart = useCart((state) => state.addItem);
 
 	const { name, price, images, category } = data;
 	const [isClient, setIsClient] = useState(false);
@@ -35,6 +37,10 @@ const ProductCard = ({ data }: Props) => {
 
 	const onPreview = () => {
 		previewModal.onOpen(data);
+	};
+
+	const onAddToCart = () => {
+		addToCart(data);
 	};
 	return (
 		<Card className="pt-4 grow-0" shadow="sm" isPressable onPress={onPreview}>
@@ -75,7 +81,7 @@ const ProductCard = ({ data }: Props) => {
 				<Button
 					className="px-2 bg-slate-700 text-white dark:bg-white dark:text-slate-700"
 					size="md"
-					onClick={onClick}
+					onClick={onAddToCart}
 				>
 					<ShoppingBasket className="h-4 w-4" />
 					Add to Cart

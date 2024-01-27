@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 import Navbar from "@/components/navbar";
@@ -23,6 +24,7 @@ export default function RootLayout({
 		<html lang="en">
 			<body className={font.className}>
 				<Providers>
+					<Toaster position="bottom-center" richColors />
 					<ModalProvider />
 					<Navbar />
 					{children}

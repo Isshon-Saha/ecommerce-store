@@ -6,14 +6,16 @@ import { Button } from "@nextui-org/react";
 
 import { Product } from "@/types";
 import Currency from "@/components/currency";
+import useCart from "@/hooks/use-cart";
 
 type Props = {
 	data: Product;
 };
 
 const Info = ({ data }: Props) => {
+	const addToCart = useCart((state) => state.addItem);
 	return (
-		<div>
+		<div className="flex flex-col justify-between">
 			<h1 className="text-3xl font-bold text-slate-700">{data.name}</h1>
 			<div className="flex items-end mt-3 justify-between">
 				<p className="text-2xl font-semibold text-slate-700">
@@ -38,7 +40,8 @@ const Info = ({ data }: Props) => {
 				<Button
 					color="secondary"
 					size="lg"
-					className="w-full flex items-center gap-x-2 rounded-md"
+					className="w-full mt-auto flex items-center gap-x-2 rounded-md"
+					onClick={() => addToCart(data)}
 				>
 					Add to Cart
 					<ShoppingCart className="" />

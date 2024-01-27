@@ -13,7 +13,11 @@ const Currency = (props: Props) => {
 		setIsMounted(true);
 	}, []);
 	if (!isMounted) return null;
-	return <span>{formatter.format(parseInt(props.value))}</span>;
+	return (
+		<span className="text-slate-700">
+			{formatter.format(parseInt(props.value))}
+		</span>
+	);
 };
 
 export default Currency;

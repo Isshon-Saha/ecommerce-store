@@ -1,14 +1,16 @@
 "use client";
 
-import { Modal, ModalBody, ModalContent, ModalFooter } from "@nextui-org/modal";
+import { Modal, ModalBody, ModalContent } from "@nextui-org/modal";
 
 import usePreviewModal from "@/hooks/use-preview-modal";
 import Gallery from "@/components/gallery";
 import Info from "@/components/info";
+import { useMediaQuery } from "usehooks-ts";
 
 const PreviewModal = () => {
 	const previewModal = usePreviewModal();
 	const product = usePreviewModal((state) => state.data);
+	const isMobile = useMediaQuery("(max-width: 768px)");
 
 	if (!product) return null;
 	return (
@@ -16,7 +18,7 @@ const PreviewModal = () => {
 			isOpen={previewModal.isOpen}
 			onClose={previewModal.onClose}
 			placement="auto"
-			size="3xl"
+			size={isMobile ? "md" : "3xl"}
 		>
 			<ModalContent>
 				{(onClose) => (
